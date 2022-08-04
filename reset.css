@@ -1,0 +1,54 @@
+/*
+1. 防止 padding 和 border 影响元素尺寸
+*/
+*,
+::before,
+::after {
+  box-sizing: border-box; /* 1 */
+}
+
+/*
+1. 在浏览器中使用一致的行高
+2.
+  首选方案: system-ui: 使用操作系统的默认字体
+  西文:
+    首选方案:
+      -apple-system / BlinkMacSystemFont: iOS, macOS
+      Segoe UI: Windows, Windows Phone
+      Roboto: Android, ChromeOS
+      Ubuntu: Linux
+    回退方案:
+      Helvetica Neue: 低版本 iOS, macOS
+      Helvetica: 经典无衬线字体
+      Arial: 旧版本 Windows
+  中文:
+    首选方案:
+      PingFang SC: iOS, macOS
+      Hiragino Sans GB: 冬青黑体, 比 Microsoft YaHei 表现效果优秀, macOS 内置
+    回退方案:
+      Microsoft YaHei UI: Windows 8.1
+      Microsoft YaHei: Window Vista - Window 8
+      Source Han Sans CN: Android
+  最终回退方案: sans-serif
+  emoji:
+    Apple Color Emoji: iOS, macOS
+    Segoe UI Emoji: Window
+    Segoe UI Symbol: Window 图标
+    Noto Color Emoji: Google
+3. 文字抗锯齿
+*/
+html {
+  line-height: 1.5; /* 1 */
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, "Helvetica Neue", Helvetica, Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Source Han Sans CN", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"; /* 2 */
+  -webkit-font-smoothing: antialiased; /* 3 */
+  -moz-osx-font-smoothing: grayscale; /* 3 */
+}
+
+/*
+1. 移除 margin
+2. 继承 `html` 的 line-height
+*/
+body {
+  margin: 0; /* 1 */
+  line-height: inherit;
+}
